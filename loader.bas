@@ -1,0 +1,3 @@
+10 MEMORY &8000
+20 LOAD "disc.bin", &8000
+30 CALL &8000
