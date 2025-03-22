@@ -6,8 +6,30 @@ DMA2_ADDR	equ #6c08
 DMA2_SCALE	equ #6c0a
 DMA_CTL		equ #6c0f
 
+AY_REG_TONE_A_COARSE	equ #01
+AY_REG_TONE_A_FINE		equ #00
+AY_REG_TONE_B_COARSE	equ #03
+AY_REG_TONE_B_FINE		equ #02
+AY_REG_TONE_C_COARSE	equ #05
+AY_REG_TONE_C_FINE		equ #04
+AY_REG_NOISE			equ #06
+AY_REG_MIXER			equ #07
+AY_REG_VOLUME_A			equ #08
+AY_REG_VOLUME_B			equ #09
+AY_REG_VOLUME_C			equ #0a
+
+AY_HW_ENV				equ #10
+
+AY_MIX_A_ENABLE			equ %00000001
+AY_MIX_B_ENABLE			equ %00000010
+AY_MIX_C_ENABLE			equ %00000100
+AY_MIX_A_NOISE_ENABLE	equ %00001000
+AY_MIX_B_NOISE_ENABLE	equ %00010000
+AY_MIX_C_NOISE_ENABLE	equ %00100000
+
 macro DMA_SET reg, val
-	dw ({reg} << 8) | {val}
+	db {val}
+	db {reg}
 mend
 
 macro DMA_PAUSE ticks

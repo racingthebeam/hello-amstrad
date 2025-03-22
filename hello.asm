@@ -33,7 +33,7 @@ Start:
 	ld hl, DmaList
 	ld (DMA0_ADDR), hl	; Set DMA channel 0 address
 	ld a, 0
-	ld (DMA0_SCALE), hl	; Set prescaler
+	ld (DMA0_SCALE), a	; Set prescaler
 	ld a, #01
 	ld (DMA_CTL), a		; Enable DMA channel 0
 
@@ -155,8 +155,16 @@ PlusInitSequence:
 
 	align 2
 DmaList:
-	DMA_SET #7, #3d
-	DMA_SET #9, #0f
-	DMA_SET #3, #01
+	DMA_REPEAT #100
+	DMA_SET AY_REG_MIXER, (AY_MIX_B_ENABLE | AY_MIX_B_NOISE_ENABLE) ^ #ffff
+	DMA_SET AY_REG_MIXER, %00111101
+	DMA_SET AY_REG_NOISE, %00001011
+	DMA_SET AY_REG_VOLUME_B, #0f
+	DMA_SET AY_REG_TONE_B_COARSE, #01
+	DMA_PAUSE 300 * 10
+	DMA_SET AY_REG_MIXER, #ffff
+	DMA_PAUSE 300 * 10
+	DMA_LOOP
+	DMA_INT
 	DMA_STOP
 
