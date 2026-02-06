@@ -37,3 +37,14 @@ cd $HOME/projects/rtb/amsdev/ace-dl
 ./AceDL "$@"
 ```
 
+### 5. Update Makefile
+
+Set `TOOLS` to point at the tools directory created in step 4.
+
+### 6. Run
+
+```bash
+make run
+```
+
+
