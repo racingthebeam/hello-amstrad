@@ -5,8 +5,35 @@ Basic dev template for Amstrad CPC.
 Dependencies:
 
   - `make`
-  - [Rasm](https://github.com/EdouardBERGE/rasm)
-  - [IDSK](https://www.cpcwiki.eu/index.php/IDSK)
-  - [ACE-DL](https://roudoudou.com/ACE-DL/)
+  - `perl`
+  - Rasm
+  - iDSK
+  - ACE-DL
 
-`ace-dl` is a little weird and I used a helper script to launch it that I seem to have deleted. Will retrace my steps...
+## Instructions
+
+### 1. Build rasm from source
+
+[Grab it from here](https://github.com/EdouardBERGE/rasm)
+
+### 2. Build iDSK from source
+
+[Grab it from here](https://www.cpcwiki.eu/index.php/IDSK) - requires `cmake`
+
+### 3. Install ACE-DL
+
+[Grab it from here](https://roudoudou.com/ACE-DL/) then extract it somewhere.
+
+### 4. Create tools directory
+
+In this directory, place `rasm`, `idsk`, and an `ace` launcher script for ACE-DL, e.g.:
+
+```bash
+#!/bin/bash
+
+# Update this to wherever you put ACE-DL
+cd $HOME/projects/rtb/amsdev/ace-dl
+
+./AceDL "$@"
+```
+
