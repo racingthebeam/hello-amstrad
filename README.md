@@ -18,7 +18,7 @@ Dependencies:
 
 ### 2. Build iDSK from source
 
-[Grab it from here](https://www.cpcwiki.eu/index.php/IDSK) - requires `cmake`
+[Grab it from here](https://github.com/cpcsdk/idsk) - requires `cmake`
 
 ### 3. Install ACE-DL
 
