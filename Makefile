@@ -4,7 +4,7 @@ BIN := $(RADIX).bin
 LOADER := $(RADIX).bas
 DISK := $(RADIX).dsk
 
-SOURCES := hello.asm dma.asm
+SOURCES := hello.asm dma.asm crtc.asm lib.asm scratch.asm
 ORG := 1200
 
 default: $(DISK)
